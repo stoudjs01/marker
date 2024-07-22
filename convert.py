@@ -139,7 +139,7 @@ def main():
 
     # 如果使用MPS，则无法使用torch多进程共享内存。这将使事情更少内存高效。如果您想共享内存，您必须使用CUDA或CPU。  设置TORCH_DEVICE环境变量以更改设备。
     if settings.TORCH_DEVICE == "mps" or settings.TORCH_DEVICE_MODEL == "mps":
-        print("无法使用MPS与torch多进程共享内存。这将使事情更少内存高效。如果您想共享内存，您必须使用CUDA或CPU。  设置TORCH_DEVICE环境变量以更改设备。")
+        print("无法使用MPS与torch多进程共享内存。这将使事情更少内存高效。如果您想共享内存,您必须使用CUDA或CPU。  设置TORCH_DEVICE环境变量以更改设备。")
 
         model_lst = None
     else:
@@ -153,7 +153,7 @@ def main():
             model.share_memory()
 
     # 打印转换信息
-    print(f"在块{args.chunk_idx + 1}/{args.num_chunks}中转换{len(files_to_convert)}个pdf，使用{total_processes}个进程，并存储在{out_folder}")
+    print(f"在块{args.chunk_idx + 1}/{args.num_chunks}中转换{len(files_to_convert)}个pdf,使用{total_processes}个进程，并存储在{out_folder}")
     # 创建任务参数
     task_args = [(f, out_folder, metadata.get(os.path.basename(f)), args.min_length) for f in files_to_convert]
 
